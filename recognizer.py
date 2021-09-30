@@ -7,7 +7,8 @@ import sys
 start=time.time()
 period=8
 
-cap = cv2.VideoCapture(0);
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+
 recognizer = cv2.face.LBPHFaceRecognizer_create();
 face_cas = cv2.CascadeClassifier('haarcascade_eye.xml')
 recognizer.read('trainer.yml');
@@ -23,7 +24,11 @@ dict_ = {
 font = cv2.FONT_HERSHEY_SIMPLEX
 while True:
     ret, img = cap.read();
+    cv2.imshow("image",img)
+    cv2.waitKey(30)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY);
+    cv2.imshow("image",gray)
+    cv2.waitKey(0)
     faces = face_cas.detectMultiScale(gray, 1.3, 7);
     print(faces)
     for (x,y,w,h) in faces:

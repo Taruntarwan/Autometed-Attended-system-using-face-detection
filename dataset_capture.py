@@ -8,7 +8,7 @@ def assure_path_exists(path):
         os.makedirs(dir)
 face_id=input('Enter your id : ')
 # Start capturing video 
-vid_cam = cv2.VideoCapture(0)
+vid_cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
 # Detect object in video stream using Haarcascade Frontal Face
 face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -50,7 +50,7 @@ while(True):
         break
 
     # If image taken reach 100, stop taking video
-    elif count>=30:
+    elif count>=20:
         print("Successfully Captured")
         break
 

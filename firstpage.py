@@ -30,7 +30,6 @@ def function6():
 
 def attend():
     
-    
     opener ="open" if sys.platform == "darwin" else "xdg-open"
     subprocess.call([opener, os.getcwd()+"/Attend/Attendance"+str(datetime.now().date())+'.xls'])
 
